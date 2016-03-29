@@ -3,7 +3,24 @@ package series.serie1;
 public class Arrays {
 
     public static int removeIndexes(int v[], int l, int r, int[] vi, int li, int ri) {
-        throw new UnsupportedOperationException();
+        int indV =l , indVi=li;
+        while(indV <=r && indVi<=ri){
+            if(indV==vi[indVi]){
+                swap(indV,v,r);
+                r--;
+                indVi++;
+            }
+            indV++;
+        }
+        return r-l;
+    }
+
+    private static void swap(int ind, int[] v, int r) {
+        int aux= v[ind], i;
+        for(i=ind;i<=r;i++){
+            v[i]=v[i+1];
+        }
+        v[i+1]=aux;
     }
 
 //    public static int countEquals(int[] v1, int l1, int r1, int[] v2, int l2, int r2){
